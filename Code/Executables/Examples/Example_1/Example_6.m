@@ -15,7 +15,9 @@ settings.ddM=3;
 settings.kypSlackMode='normal';
 settings.options1.sep=0;
 settings.options12.sep=0;
-numWorkers=6;                     % Maximum simultaneous MATLAB solve processes.
+numWorkers=3;                     % Batch size of simultaneous MATLAB solve processes. Keep an eye on your RAM usage, if it starts writing
+                                  % to disk it will slow down
+                                  % significantly.
 resumeSweep=true;                 % Resume compatible checkpoints after interruption.
 runPoleSweep=true;                % Set true to reproduce all three Fig. 7 panels
 sides={'primal', 'dual'};          % Both sides are needed for their subtraction
@@ -72,9 +74,9 @@ if ~runPoleSweep
         sides,alpha,nu,rho,numWorkers);
     plot_Example_6(Pilot.primal,Pilot.dual);
 else
-    alphaGrid=[.03,.27,.46,.71,.80,.89,.96];
-    rhoGrid=-logspace(3,-3,50);
-    nuGrid=0:1;
+    alphaGrid=0.3;%[.03,.27,.46,.71,.80,.89,.96];
+    rhoGrid=-logspace(3,-3,10);
+    nuGrid=0;
     configuration=struct('plant',P,'settings',settings,'alpha',alphaGrid, ...
         'rho',rhoGrid,'nu',nuGrid);
     Comparison=struct;

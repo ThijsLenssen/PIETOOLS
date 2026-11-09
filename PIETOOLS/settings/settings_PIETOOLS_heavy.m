@@ -31,9 +31,9 @@ function settings = settings_PIETOOLS_heavy()
 % internal variables:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-n_order1 = 2; 
-n_order2 = 1; % This is supposed to be an accuracy/non-balancing degree
-n_order3 = 1;
+n_order1 = 3; 
+n_order2 = 2; % This is supposed to be an accuracy/non-balancing degree
+n_order3 = 2;
 n_order4 = n_order2+n_order3;
 
 

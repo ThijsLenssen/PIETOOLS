@@ -1,6 +1,7 @@
 function files=plot_Example_6(primal,dual,yLimits,figureHeight,differenceYLimits)
 % Plot primal, dual, and primal-minus-dual versions of Figure 7.
 % Saved bounds are plotted without running an optimization or filling gaps.
+% Export the three PDFs beside this function and Example_6.m.
 % differenceYLimits may be a positive scalar L (giving [-L,L]) or an
 % explicit increasing [ymin,ymax] pair. Empty selects a symmetric range.
 here=fileparts(mfilename('fullpath'));
@@ -25,18 +26,13 @@ end
 previousPath=path;
 addpath(fileparts(here));
 pathCleanup=onCleanup(@()path(previousPath)); %#ok<NASGU>
-codeRoot=fileparts(fileparts(fileparts(here)));
-paperFigureDir=fullfile(fileparts(codeRoot),'Documentation', ...
-    'Dual Integral Quadratic Constraints for Robust Control of Partial Integral Equations','Figures');
-assert(isfolder(paperFigureDir),'The manuscript Figures directory was not found.');
-
 files=struct;
 f=plot_veenman_fig7(primal,yLimits,figureHeight);
-files.primal=export_panel(f,paperFigureDir,'example1_primal');
+files.primal=export_panel(f,here,'example6_primal');
 f=plot_veenman_fig7(dual,yLimits,figureHeight);
-files.dual=export_panel(f,paperFigureDir,'example1_dual');
+files.dual=export_panel(f,here,'example6_dual');
 f=plot_difference(primal,dual,figureHeight,differenceYLimits);
-files.difference=export_panel(f,paperFigureDir,'example1_difference');
+files.difference=export_panel(f,here,'example6_difference');
 end
 
 function result=load_side(here,side)
