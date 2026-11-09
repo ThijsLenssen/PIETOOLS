@@ -1,0 +1,22 @@
+# Generated MATLAB results, workspaces, solver certificates and diagnostics.
+*.mat
+*.asv
+*.fig
+*.log
+*.csv
+*.mp4
+
+# LaTeX build products.
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Generated figures and run output directories.
+/Documentation/**/Figures/
+/Executables/Examples/**/*.pdf
+/Executables/Examples/**/*.png
+/Executables/Examples/Example_6/Example_6_certificates/
+/Executables/Examples/Example_6/Example_6_diagnostics/
+/Robust Controller Design/DDE/robust/results/
+/miscellaneous functions/gridded_surface_plotting/*.pdf
